@@ -1,7 +1,5 @@
 package com.project.devi.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/board/{id}")
-	public String boardDetail(@Valid @PathVariable("id") Long id, Model model) {
+	public String boardDetail(@PathVariable("id") Long id, Model model) {
 		
 		model.addAttribute("board", boardService.findById(id));
 		

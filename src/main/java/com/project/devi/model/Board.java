@@ -1,13 +1,16 @@
 package com.project.devi.model;
 
+import java.time.LocalDateTime;
+
 public class Board {
 	
 	private Long id;
 	private String content;
 	private Long count;
-	private String createDate;
 	private String title;
 	private Long userId;
+	private LocalDateTime createdDate;
+	private LocalDateTime modifiedDate;
 	
 	public Long getId() {
 		return id;
@@ -24,14 +27,20 @@ public class Board {
 	public Long getCount() {
 		return count;
 	}
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+	public LocalDateTime getModifiedDate() {
+		return modifiedDate;
+	}
+	public void setModifiedDate(LocalDateTime modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
 	public void setCount(Long count) {
 		this.count = count;
-	}
-	public String getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
 	}
 	public String getTitle() {
 		return title;

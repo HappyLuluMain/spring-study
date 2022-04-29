@@ -20,7 +20,7 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource">
 		<property name="typeAliasesPackage" value="com.project.devi.model" />
-		<property name="mapperLocations" value="classpath:repository/mappers/board/**/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath:repository/mappers/**/*Mapper.xml" />
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" c:sqlSessionFactory-ref="sqlSessionFactory" />

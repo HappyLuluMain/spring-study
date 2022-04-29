@@ -1,7 +1,6 @@
-var index = {
+var main = {
 	init: function(){
-		$('#input').val('success!!');
 	}
 }
 
-index.init();
+main.init();
