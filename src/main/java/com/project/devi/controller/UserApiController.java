@@ -19,11 +19,4 @@ public class UserApiController {
 	public UserApiController(UserService userService) {
 		this.userService = userService;
 	}
-	
-	@RequestMapping(value = "/api/v1/user", method = RequestMethod.POST)
-	@ResponseBody
-	public Integer save(@RequestBody User user) {
-		
-		return userService.save(user);
-	}
 }

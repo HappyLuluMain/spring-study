@@ -33,9 +33,7 @@ public class UserDao {
 	}
 	
 	// 유저 생성
-	public Integer save(User user) {
+	public void save(User user) {
 		sqlSessionTemplate.insert(NAME_SPACE + ".save", user);
-
-		return user.getId();
 	}
 }

@@ -1,4 +1,4 @@
-/* var user_main = {
+var user_main = {
 	init: function(){
 		var _this = this;
 		
@@ -29,4 +29,4 @@
 	}
 }
 
-user_main.init(); */
+user_main.init();
