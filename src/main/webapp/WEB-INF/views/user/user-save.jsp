@@ -5,17 +5,17 @@
 <div>
 	<form action="/devi/user" method="post">
 		<div class="form-group">
-			아이디 : <input type="text" id="username" name="username" value="${ userDto.username }"/> ${ valid_username }
-		</div>
+			아이디 <br/><input type="text" id="username" />&emsp;<span id="username-valid"></span>
+		</div><br/>
 		<div class="form-group">
-			비밀번호 : <input type="password" id="password" name="password" value="${ userDto.password }"/> ${ valid_password }
-		</div>
+			비밀번호 <br/><input type="password" id="password"/>&emsp;<span id="password-valid"></span>
+		</div><br/>
 		<div class="form-group">
-			이메일 : <input type="email" id="email" name="email" value="${ userDto.email }"/> ${ valid_email }
+			이메일 <br/><input type="email" id="email" />&emsp;<span id="email-valid"></span>
 		</div>
-		<a href="/devi">취소</a>
-		<button type="submit" id="btn-save" >확인</button> 
 	</form>
+		<a href="/devi">취소</a>
+		<button type="button" id="btn-save" >확인</button> 
 </div>
 
 <script src="resources/script/user/user.js"></script>

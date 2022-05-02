@@ -1,4 +1,4 @@
-/* var user_main = {
+var user_main = {
 	init: function(){
 		var _this = this;
 		
@@ -21,12 +21,15 @@
 			dataType: 'json',
 			data: JSON.stringify(data)
 		}).done(function(res){
-			alert('회원 가입 완료 ' + res);
+			console.log(res);
 			window.location.href='/devi';
 		}).fail(function(error){
-			alert(JSON.stringify(error));
-		})
+			$('#username-valid').text(error.responseJSON.username);
+			$('#password-valid').text(error.responseJSON.password);
+			$('#email-valid').text(error.responseJSON.email);
+			
+		});
 	}
 }
 
-user_main.init(); */
+user_main.init();
