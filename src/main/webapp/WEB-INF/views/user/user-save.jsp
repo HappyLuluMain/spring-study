@@ -18,5 +18,4 @@
 		<button type="button" id="btn-save" >확인</button> 
 </div>
 
-<script src="resources/script/user/user.js"></script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

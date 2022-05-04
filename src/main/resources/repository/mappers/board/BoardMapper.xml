@@ -6,16 +6,22 @@
 <mapper namespace="com.project.devi.mappers.BoardMapper">
 
 	<select id="findById" resultType="Board" resultMap="boardResultMap" parameterType="Long" >
-		SELECT * FROM board where id = #{id}
+		SELECT * FROM boards where id = #{id}
+	</select>
+
+	<select id="findAll" resultType="Board" resultMap="boardResultMap" parameterType="Integer">
+		SELECT * FROM boards ORDER BY modified_date DESC limit #{startRow}, 5;
 	</select>
 
 	<resultMap type="Board" id="boardResultMap">
 		<id column="id" property="id"/>
 		<result column="content" property="content"/>
 		<result column="count" property="count"/>
-		<result column="create_date" property="createDate"/>
+		<result column="create_date" property="createdDate"/>
+		<result column="modified_date" property="modifiedDate"/>
 		<result column="title" property="title"/>
 		<result column="user_id" property="userId"/>
+		<result column="author" property="author"/>
 	</resultMap>
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.project.devi.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,9 @@ public class BoardService {
 	public Board findById(Long id) {
 		
 		return boardDao.findById(id);
+	}
+	
+	public List<Board> findAll(int pageIndex){
+		return boardDao.findAll(pageIndex);
 	}
 }

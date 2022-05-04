@@ -5,55 +5,52 @@ import java.time.LocalDateTime;
 public class Board {
 	
 	private Long id;
-	private String content;
-	private Long count;
 	private String title;
-	private Long userId;
+	private String content;
+	private String author;
+	private Integer count;
+	private Integer userId;
 	private LocalDateTime createdDate;
 	private LocalDateTime modifiedDate;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
+	public Board() {}
+	
+	public Board(Long id, String title, String content, String author, Integer count, Integer userId,
+			LocalDateTime createdDate, LocalDateTime modifiedDate) {
 		this.id = id;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
+		this.title = title;
 		this.content = content;
-	}
-	public Long getCount() {
-		return count;
-	}
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-	public void setCreatedDate(LocalDateTime createdDate) {
+		this.author = author;
+		this.count = count;
+		this.userId = userId;
 		this.createdDate = createdDate;
-	}
-	public LocalDateTime getModifiedDate() {
-		return modifiedDate;
-	}
-	public void setModifiedDate(LocalDateTime modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
-	public void setCount(Long count) {
-		this.count = count;
+	public Long getId() {
+		return id;
 	}
 	public String getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public String getContent() {
+		return content;
 	}
-	public Long getUserId() {
+	public String getAuthor() {
+		return author;
+	}
+	public Integer getCount() {
+		return count;
+	}
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
 	}
+	public LocalDateTime getModifiedDate() {
+		return modifiedDate;
+	}
+	
 	
 	
 }
