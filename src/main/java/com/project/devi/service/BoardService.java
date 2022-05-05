@@ -32,7 +32,6 @@ public class BoardService {
 	
 	// 게시글 여러개 가져오기(게시판)
 	// Board 객체를 가져와서 BoardResponseDto에 매핑, Board 객체에는 username이 없기때문에 username 설정을 위해 forEach 사용
-	// 가독성이 크게 나쁜것 같지는 않지만 좀 비효율적으로 보임 -----------------
 	public List<BoardResponseDto> findAll(int pageIndex){
 		
 		List<BoardResponseDto> list = boardDao.findAll(pageIndex).stream()
