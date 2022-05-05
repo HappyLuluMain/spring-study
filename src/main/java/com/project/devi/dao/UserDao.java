@@ -36,4 +36,9 @@ public class UserDao {
 	public void save(User user) {
 		sqlSessionTemplate.insert(NAME_SPACE + ".save", user);
 	}
+	
+	// 유저 이름 가져오기
+	public String findUsernameById(Integer id) {
+		return sqlSessionTemplate.selectOne(NAME_SPACE + ".findUsernameById", id);
+	}
 }

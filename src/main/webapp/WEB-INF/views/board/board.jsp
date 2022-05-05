@@ -17,7 +17,7 @@
 				<li class="list-item">
 					<div class="wr-num">${ board.id }</div>
 					<div class="wr-subject">${ board.title }</div>
-					<div class="wr-name">${ board.author }</div>
+					<div class="wr-name">${ board.username }</div>
 					<div class="wr-date">
 					<fmt:parseDate value="${ board.modifiedDate }" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate"/>
 					<fmt:formatDate value="${ parsedDate }" pattern="MM.dd"/>
@@ -27,6 +27,7 @@
 			</c:forEach>
 		</ul>
 	</div>
+	<a href="/devi/board/write">글쓰기</a>
 </div>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

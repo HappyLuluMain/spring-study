@@ -23,17 +23,19 @@ public class UserService {
 		this.userDao = userDao;
 	}
 	
-	
 	public User findByUsernameAndPassword(String username, String password) {
 		
 		return userDao.findByUsernameAndPassword(username, password);
 	}
 	
-	
-	
+	// 유저 회원가입 저장
 	public void save(UserRequestDto userRequestDto) {
 		User user = userRequestDto.toEntity();
 		userDao.save(user);
 	}
 	
+	// 유저 이름 가져오기
+	public String findUsernameById(Integer id) {
+		return userDao.findUsernameById(id);
+	}
 }

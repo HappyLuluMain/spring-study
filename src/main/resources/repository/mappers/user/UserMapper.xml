@@ -12,9 +12,14 @@
 	
 	<!-- 유저 생성 쿼리 -->
 	<insert id="save" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-		INSERT INTO users(username, password, email, role, created_date, modified_date) 
-		values(#{username}, #{password}, #{email}, #{role}, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())
+		INSERT INTO users(username, password, email, role) 
+		values(#{username}, #{password}, #{email}, #{role})
 	</insert>
+	
+	<!-- 유저 이름 가져오기 -->
+	<select id="findUsernameById" resultType="String" parameterType="Integer">
+		SELECT username FROM users WHERE id = #{id}
+	</select>
 	
 	<resultMap type="User" id="userResultMap">
 		<id column="id" property="id" />

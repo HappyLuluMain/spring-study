@@ -7,24 +7,18 @@ public class Board {
 	private Long id;
 	private String title;
 	private String content;
-	private String author;
-	private Integer count;
 	private Integer userId;
+	private Integer count;
 	private LocalDateTime createdDate;
 	private LocalDateTime modifiedDate;
 	
 	public Board() {}
 	
-	public Board(Long id, String title, String content, String author, Integer count, Integer userId,
-			LocalDateTime createdDate, LocalDateTime modifiedDate) {
-		this.id = id;
+	// BoardSaveRequestDto -> Board를 위한 constructor
+	public Board(String title, String content, Integer userId) {
 		this.title = title;
 		this.content = content;
-		this.author = author;
-		this.count = count;
 		this.userId = userId;
-		this.createdDate = createdDate;
-		this.modifiedDate = modifiedDate;
 	}
 	public Long getId() {
 		return id;
@@ -34,9 +28,6 @@ public class Board {
 	}
 	public String getContent() {
 		return content;
-	}
-	public String getAuthor() {
-		return author;
 	}
 	public Integer getCount() {
 		return count;

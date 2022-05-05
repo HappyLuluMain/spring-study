@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.devi.service.BoardService;
+import com.project.devi.service.UserService;
 
 @Controller
+@RequestMapping("/board")
 public class BoardController {
 	
 	private final BoardService boardService;
@@ -18,26 +21,26 @@ public class BoardController {
 		this.boardService = boardService;
 	}
 	
-	@RequestMapping("/post/{id}")
-	public String post(@PathVariable("id") Long id, Model model) {
-		
-		model.addAttribute("board", boardService.findById(id));
-		
-		return "board/post";
+	@RequestMapping("/write")
+	public String write() {
+		return "board/board-write";
 	}
 	
-	// 게시판 첫 페이지
-	@RequestMapping("/board")
-	public String board(Model model) {
-		model.addAttribute("boards", boardService.findAll(1));
-		return "board/board";
-	}
-	
-	// 게시판 페이징을 위한 컨트롤러 (@PathVarible required는 스프링 4.3.3 이후부터 지원)
-	@RequestMapping("/board/{pageIndex}")
-	public String board(@PathVariable("pageIndex") Integer pageIndex, Model model) {
+	// 게시글 여러개 (게시판)
+	@RequestMapping({"", "/"})
+	public String boards(@RequestParam(value = "page", defaultValue = "1", required = false) Integer pageIndex, Model model) {
 		model.addAttribute("boards", boardService.findAll(pageIndex));
 		
 		return "board/board";
 	}
+	
+	// 게시글 하나
+	@RequestMapping("/{id}")
+	public String board(@PathVariable("id") Long id, Model model) {
+		
+		model.addAttribute("board", boardService.findById(id));
+		
+		return "board/board-detail";
+	}
+	
 }

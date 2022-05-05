@@ -22,15 +22,21 @@ public class BoardDao {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
 
+	// 게시글 하나 가져오기
 	public Board findById(Long id) {
 		
 		return sqlSessionTemplate.selectOne(NAME_SPACE + ".findById", id);
 	}
 	
-	
+	// 게시글 PAGE_SIZE 만큼 가져오기(게시판)
 	public List<Board> findAll(int pageIndex){
 		int startRow = (pageIndex - 1) * PAGE_SIZE;
 		
 		return sqlSessionTemplate.selectList(NAME_SPACE + ".findAll", startRow);
+	}
+
+	// 게시글 저장
+	public void save(Board board) {
+		sqlSessionTemplate.insert(NAME_SPACE + ".save", board);
 	}
 }
