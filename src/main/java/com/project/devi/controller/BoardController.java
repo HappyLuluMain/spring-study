@@ -29,7 +29,7 @@ public class BoardController {
 	// 게시글 여러개 (게시판)
 	@RequestMapping({"", "/"})
 	public String boards(@RequestParam(value = "page", defaultValue = "1", required = false) Integer pageIndex, Model model) {
-		model.addAttribute("boards", boardService.findAll(pageIndex));
+		model.addAttribute("pageInfo", boardService.paging(pageIndex));
 		
 		return "board/board";
 	}

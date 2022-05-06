@@ -1,0 +1,32 @@
+.list-wrap {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.list-board {
+	display: table;
+	width: 50%;
+	border: 3px solid red;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.list-head {
+	display: table-header-group;
+}
+
+.list-body {
+	display: table-row-group;
+}
+
+.list-row, .list-item{
+	display: table-row;
+}
+
+
+.list-cell {
+	border: 1px solid black;
+	padding: 5px 4px;
+	display: table-cell;
+}

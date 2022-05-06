@@ -1,6 +1,8 @@
 package com.project.devi.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,7 @@ public class BoardDao {
 	
 	private static final String NAME_SPACE = "com.project.devi.mappers.BoardMapper";
 	
-	private static final int PAGE_SIZE = 5;
+	public static final int PAGE_SIZE = 5;
 	
 	private final SqlSessionTemplate sqlSessionTemplate;
 	
@@ -29,14 +31,23 @@ public class BoardDao {
 	}
 	
 	// 게시글 PAGE_SIZE 만큼 가져오기(게시판)
-	public List<Board> findAll(int pageIndex){
-		int startRow = (pageIndex - 1) * PAGE_SIZE;
+	public List<Board> findAll(int startNum, int pageSize){
 		
-		return sqlSessionTemplate.selectList(NAME_SPACE + ".findAll", startRow);
+		Map<String, Integer> param = new HashMap<String, Integer>();
+		
+		param.put("startNum", startNum);
+		param.put("pageSize", pageSize);
+		
+		return sqlSessionTemplate.selectList(NAME_SPACE + ".findAll", param);
 	}
 
 	// 게시글 저장
 	public void save(Board board) {
 		sqlSessionTemplate.insert(NAME_SPACE + ".save", board);
+	}
+	
+	// 게시판 마지막 페이지
+	public Long totalCountOfBoard() {
+		return sqlSessionTemplate.selectOne(NAME_SPACE + ".totalCountOfBoards");
 	}
 }

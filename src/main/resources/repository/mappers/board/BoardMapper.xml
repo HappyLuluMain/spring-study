@@ -11,8 +11,8 @@
 	</select>
 
 	<!-- 게시글 PAGE_SIZE 만큼 가져오기(게시판)-->
-	<select id="findAll" resultType="Board" resultMap="boardResultMap" parameterType="Integer">
-		SELECT * FROM boards ORDER BY modified_date DESC LIMIT #{startRow}, 5
+	<select id="findAll" resultType="Board" resultMap="boardResultMap" parameterType="hashmap">
+		SELECT * FROM boards ORDER BY modified_date DESC LIMIT #{startNum}, #{pageSize}
 	</select>
 
 	<!-- 게시글 저장 -->
@@ -29,6 +29,11 @@
 	<update id="updateCount" parameterType="Integer">
 		UPDATE boards SET count = count + 1 WHERE id = #{id}
 	</update>
+	
+	<!-- 게시글 총 개수 -->
+	<select id="totalCountOfBoards" resultType="Long">
+		SELECT count(*) FROM boards;
+	</select>
 	
 	<resultMap type="Board" id="boardResultMap">
 		<id column="id" property="id"/>
