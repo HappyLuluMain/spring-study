@@ -1,4 +1,4 @@
-package com.project.devi.controller;
+package com.project.devi.controller.api;
 
 import javax.validation.Valid;
 
@@ -26,7 +26,7 @@ public class UserApiController {
 	
 	//회원가입과 유효성 검사
 	@RequestMapping(value = "/api/v1/user", method = RequestMethod.POST)
-	public ResponseEntity<UserRequestDto> save(Model model, @Valid @RequestBody UserRequestDto userRequestDto) {
+	public ResponseEntity<UserRequestDto> save(@Valid @RequestBody UserRequestDto userRequestDto) {
 		
 		//유효성 검사 통과 실패시 ExceptionController에서 MethodArgumentNotValidException 처리
 		

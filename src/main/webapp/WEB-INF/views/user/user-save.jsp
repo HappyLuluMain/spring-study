@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 <h1>회원 가입</h1>
-<div>
-	<form action="/devi/user" method="post">
+<div id="form-wrap">
+	<form id="user-save-form">
 		<div class="form-group">
 			아이디 <br/><input type="text" id="username" />&emsp;<span id="username-valid"></span>
 		</div><br/>
@@ -15,7 +15,8 @@
 		</div>
 	</form>
 		<a href="/devi">취소</a>
-		<button type="button" id="btn-save" >확인</button> 
+		<button type="button" id="btn-save" >확인</button>
 </div>
 
+<script src="/devi/resources/script/user.js"></script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

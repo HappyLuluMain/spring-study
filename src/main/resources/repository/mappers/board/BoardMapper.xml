@@ -16,7 +16,7 @@
 	</select>
 
 	<!-- 게시글 저장 -->
-	<insert id="save" parameterType="Board">
+	<insert id="save" parameterType="Board" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
 		INSERT INTO boards(title, content, user_id, count) VALUES(#{title}, #{content}, #{userId}, 0)
 	</insert>
 

@@ -15,8 +15,6 @@ public class BoardDao {
 	
 	private static final String NAME_SPACE = "com.project.devi.mappers.BoardMapper";
 	
-	public static final int PAGE_SIZE = 5;
-	
 	private final SqlSessionTemplate sqlSessionTemplate;
 	
 	@Autowired

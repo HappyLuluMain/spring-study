@@ -1,4 +1,4 @@
-package com.project.devi.controller;
+package com.project.devi.controller.api;
 
 import javax.validation.Valid;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class BoardApiController {
 	}
 	
 	@RequestMapping(value="/api/v1/board", method = RequestMethod.POST)
-	public ResponseEntity<BoardSaveRequestDto> boardSave(@Valid BoardSaveRequestDto requestDto, Errors errors) {
+	public ResponseEntity<BoardSaveRequestDto> boardSave(@Valid @RequestBody BoardSaveRequestDto requestDto) {
 		
 		//유효성 검사 통과 실패시 ExceptionController에서 MethodArgumentNotValidException 처리
 		

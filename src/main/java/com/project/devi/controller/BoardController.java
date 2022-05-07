@@ -22,7 +22,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/write")
-	public String write() {
+	public String write(Model model) {
+		
+		// 임의의 유저 id
+		model.addAttribute("userId", 1);
+		
 		return "board/board-write";
 	}
 	

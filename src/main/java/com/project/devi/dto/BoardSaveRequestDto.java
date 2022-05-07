@@ -12,7 +12,6 @@ public class BoardSaveRequestDto {
 	@NotBlank(message = "내용은 필수 입력 값입니다")
 	private String content;
 	
-	@NotBlank
 	private Integer userId;
 
 	public String getTitle() {
