@@ -19,6 +19,9 @@
 			</label>
 			<span id="content-valid"></span>
 		</div>
+		<div class="form-group">
+				<input type="file" name="file" id="file"/>
+		</div>
 	</form>
 	<a href="/devi/board">취소</a>
 	<button type="button" id="btn-write">확인</button>

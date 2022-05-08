@@ -1,18 +1,18 @@
 package com.project.devi.dto;
 
-import javax.validation.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.devi.model.Board;
 
 public class BoardSaveRequestDto {
 	
-	@NotBlank(message = "제목은 필수 입력 값입니다")
 	private String title;
 	
-	@NotBlank(message = "내용은 필수 입력 값입니다")
 	private String content;
 	
 	private Integer userId;
+	
+	private MultipartFile file;
 
 	public String getTitle() {
 		return title;
@@ -37,7 +37,15 @@ public class BoardSaveRequestDto {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public Board toEntity() {
 		return new Board(title, content, userId);
 	}
